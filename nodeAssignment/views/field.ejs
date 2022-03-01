@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/" method="post">
+        Name: <input type="text" id="name" name="name"><br>
+        Email: <input type="text" id="email" name="email"><br><br>
+        Gender: <input type="text" id="gender" name="gender"><br><br>
+        <button type="submit" onClick="loadDoc()">Submit Form</button>
+    </form>
+
+    <script>
+        function loadDoc() {
+            const user = { "id": "4", "name": "amit", "email": "amit@gmail.com", "gender": "male" };
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("demo").innerHTML = this.responseText;
+            }
+            xhttp.open("POST", "http://localhost:5000/");
+            xhttp.setRequestHeader('Content-Type', 'application/json');
+            xhttp.send();
+            console.log(xhttp);
+        }
+
+    </script>
+
+</body>
+
+</html>
