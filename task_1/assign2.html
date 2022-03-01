@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <form id="myForm">
+        Name: <input type="text" id="name" name="Name"><br>
+        Email: <input type="text" id="email" name="Email"><br><br>
+        Gender: <input type="text" id="gender" name="Gender"><br><br>
+        Dob: <input type="text" id="dob" name="Dob"><br><br>
+        <button type="button" onclick="myFunction()">Submit Form</button>
+    </form>
+    <table border="1">
+        <th>The Data</th>
+        <tr>
+            <td>Name</td>
+            <td>email</td>
+            <td>gender</td>
+            <td>dob</td>
+        </tr>
+        <tbody id="myData">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function myFunction() {
+            var data = document.getElementById("myForm");
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            console.log(name);
+            var email = document.getElementById("email").value;
+            console.log(email);
+            var gender = document.getElementById("gender").value;
+            console.log(gender);
+            var dob = document.getElementById("dob").value;
+            console.log(dob);
+            var x = { name, email, gender, dob };
+            var data = JSON.stringify(x);
+            console.log(JSON.stringify(x));
+            // console.log(x);
+            // cb(x);
+            // cb(data);
+
+            // document.getElementById('myData').innerHTML = data;
+
+            // fetch(x).then(res => {
+            //     return res.json();
+            // }).then(data => {
+            //     // console.log(data);
+            //     cb(data);
+            // }).catch(err => {
+            //     console.log(err);
+            // })
+        }
+
+        /*  function fetchData(cb) {
+             document.getElementById('myData').innerHTML = data;
+             cb(myFunction);
+         } */
+        // myFunction(myData);
+
+        function myData(data) {
+            var container = document.getElementById('myData');
+            for (i = 0; i < data.length; i++) {
+                var tr = document.createElement("tr");
+
+                var name_td = document.createElement("td");
+                name_td.innerHTML = data[i].name
+                var email_td = document.createElement("td");
+                email_td.innerHTML = data[i].email
+                var gender_td = document.createElement("td");
+                gender_td.innerHTML = data[i].gender
+                var dob_td = document.createElement("td");
+                dob_td.innerHTML = data[i].dob
+                tr.appendChild(name_td);
+                tr.appendChild(email_td);
+                tr.appendChild(gender_td);
+                tr.appendChild(dob_td);
+                container.append(tr);
+
+            }
+            // console.log(some);
+        }
+
+        /* function display(x) {
+            document.getElementById('myData').innerHTML = x;
+        } */
+        /* var form = document.getElementById("myForm");
+ 
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            console.log("Form Submitted");
+            var name = document.getElementById("name").value;
+            console.log(name);
+            var email = document.getElementById("email").value;
+            console.log(email);
+            var gender = document.getElementById("gender").value;
+            console.log(gender);
+            var dob = document.getElementById("dob").value;
+            console.log(dob);
+        }); */
+    </script>
+</body>
+
+</html>
