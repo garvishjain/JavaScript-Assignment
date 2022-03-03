@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const port = 5000
-// const yaml = require("js-yaml")
 const fs = require('fs')
 const swaggerJsDoc = require("swagger-jsdoc")
 const swaggerUi = require("swagger-ui-express")
@@ -12,7 +11,7 @@ const swaggerUi = require("swagger-ui-express")
 console.log(doc); */
 app.use(express.json())
 
-// Swgger
+// Swagger
 const options = {
     definition: {
 
