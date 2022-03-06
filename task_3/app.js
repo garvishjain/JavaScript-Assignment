@@ -68,9 +68,9 @@ const options = {
     },
     apis: ["app.js"]
 }
-const definationDoc = swaggerJsDoc(options)
+const definitionDoc = swaggerJsDoc(options)
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(definationDoc));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(definitionDoc));
 
 // Swagger
 
